@@ -4,7 +4,7 @@
   <title><![CDATA[Coding-Related Notes]]></title>
   <link href="http://joncgoodwin.github.com/atom.xml" rel="self"/>
   <link href="http://joncgoodwin.github.com/"/>
-  <updated>2013-01-11T14:50:26-06:00</updated>
+  <updated>2013-01-11T19:51:14-06:00</updated>
   <id>http://joncgoodwin.github.com/</id>
   <author>
     <name><![CDATA[Jonathan Goodwin]]></name>
@@ -12,5 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Octopress]]></title>
+    <link href="http://joncgoodwin.github.com/blog/2013/01/11/first-octopress/"/>
+    <updated>2013-01-11T14:55:00-06:00</updated>
+    <id>http://joncgoodwin.github.com/blog/2013/01/11/first-octopress</id>
+    <content type="html"><![CDATA[<p>Some various points of interest:</p>
+
+<figure class='code'><figcaption><span>Snippet - snippet </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>m &lt;- ggplot(my.topic, aes(x=year, y=prop))</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
 </feed>

@@ -1,12 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://joncgoodwin.github.com/blog/2013/01/11/first-octopress/</loc>
+        <lastmod>2013-01-11T19:51:11-06:00</lastmod>
+    </url>
+    <url>
         <loc>http://joncgoodwin.github.com/blog/archives/</loc>
-        <lastmod>2013-01-11T14:07:11-06:00</lastmod>
+        <lastmod>2013-01-11T19:51:11-06:00</lastmod>
     </url>
     <url>
         <loc>http://joncgoodwin.github.com/</loc>
-        <lastmod>2013-01-11T14:07:11-06:00</lastmod>
+        <lastmod>2013-01-11T19:51:11-06:00</lastmod>
     </url>
     <url>
         <loc>http://joncgoodwin.github.com/robots.txt</loc>
