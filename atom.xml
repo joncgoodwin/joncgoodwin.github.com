@@ -4,7 +4,7 @@
   <title><![CDATA[Technical Notes]]></title>
   <link href="http://joncgoodwin.github.com/atom.xml" rel="self"/>
   <link href="http://joncgoodwin.github.com/"/>
-  <updated>2013-06-17T14:48:06-05:00</updated>
+  <updated>2013-06-17T14:49:29-05:00</updated>
   <id>http://joncgoodwin.github.com/</id>
   <author>
     <name><![CDATA[Jonathan Goodwin]]></name>
@@ -71,8 +71,6 @@
 
 
 <p>There is a very short python solution and Common Lisp solution posted on the solutions page (which you can only see after you have solved the problem) that I don&#8217;t understand at all, so there are clearly many other ways.</p>
-
-<p>(I am attempting to update this with code-highlighting turned on.)</p>
 ]]></content>
   </entry>
   
