@@ -4,7 +4,7 @@
   <title><![CDATA[Coding-Related Notes]]></title>
   <link href="http://joncgoodwin.github.com/atom.xml" rel="self"/>
   <link href="http://joncgoodwin.github.com/"/>
-  <updated>2013-01-12T11:48:53-06:00</updated>
+  <updated>2013-06-17T14:18:24-05:00</updated>
   <id>http://joncgoodwin.github.com/</id>
   <author>
     <name><![CDATA[Jonathan Goodwin]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dying Rabbits]]></title>
+    <link href="http://joncgoodwin.github.com/blog/2013/06/17/dying-rabbits/"/>
+    <updated>2013-06-17T13:32:00-05:00</updated>
+    <id>http://joncgoodwin.github.com/blog/2013/06/17/dying-rabbits</id>
+    <content type="html"><![CDATA[<p>I checked back in to <a href="http://rosalind.info">Project Rosalind</a> a few days ago, and I noticed that they had added several new problems. One was the familiar Fibonacci sequence, beloved of introdutory computer science instruction everywhere. There was also a modified version of the Fibonacci problem, however, which requires you to compute the sequence with <a href="http://rosalind.info/problems/fibd/">mortal rabbits</a>. (The normal Fibonacci sequence is often introduced as an unrealistic problem in modeling the population growth of immortal rabbits.)</p>
+
+<p>I wanted to find a solution to this that didn&#8217;t involve manually keeping track of how many rabbits were breeding and dying, and it turned out to be more complicated than I originally thought. Brother U. Alfred tackled it in an early issue of <em>The Fibonacci Quarterly</em> [&#8220;Dying Rabbit Problem Revived&#8221;] (http://www.fq.math.ca/Scanned/1-4/alfred2.pdf), only to be rebuked somewhat harshly by [John H. E. Cohn] (http://www.fq.math.ca/Scanned/2-2/cohn1.pdf) in a subsequent issue. V. E. Hoggatt, Jr. and D. A. Lind devised a simple-seeming [solution] (http://www.fq.math.ca/Scanned/7-5/hoggatt.pdf) a few years later that I found quite difficult to compute. Luckily enough, [this paper] (http://arxiv.org/pdf/0710.2216.pdf) by Antonio M. Oller included some Maple code that I was able to translate into perl:</p>
+
+<figure class='code'><figcaption><span>Snippet - snippet </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$h=2;
+</span><span class='line'>$n=193; #(Subtract one from offered values, indexing)
+</span><span class='line'>$k=17; # As above
+</span><span class='line'>use bignum;
+</span><span class='line'>for $i (0..($h-1)) {
+</span><span class='line'>  $c[$i]=1;
+</span><span class='line'>
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>for $i ($h..($k+$h+2)) {
+</span><span class='line'>  $c[$i]=$c[$i-1]+$c[$i-$h];
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>for $i ((($k+$h)-1)..$n) {
+</span><span class='line'>  $counter=0;
+</span><span class='line'>  for $j (($i-$k-$h+1)..($i-$h)) {
+</span><span class='line'>    $counter=$counter+$c[$j];
+</span><span class='line'>  }
+</span><span class='line'>  $c[$i]=$counter;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>print $c[$n];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is a very short python solution and Common Lisp solution posted on the solutions page (which you can only see after you have solved the problem) that I don&#8217;t understand at all, so there are clearly many other ways.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[First Octopress]]></title>
