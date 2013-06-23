@@ -9,7 +9,7 @@
   <meta name="author" content="Jonathan Goodwin">
 
   
-  <meta name="description" content="I checked back in to Project Rosalind a few days ago, and I noticed that they had added several new problems. One was the familiar Fibonacci sequence &hellip;">
+  <meta name="description" content="I wanted to modify this script by Neal Caren to create an adjustable graph that allows you to control the threshold of citations for nodes that will &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,180 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/23/creating-a-threshold-slider/">Creating a Threshold Slider</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-23T12:58:00-05:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I wanted to modify this <a href="http://www.unc.edu/~ncaren/cite_network/citenet.py">script</a> by Neal Caren to create an adjustable graph that allows you to control the threshold of citations for nodes that will appear on the graph. If for example, you wanted to see only those nodes with twenty or more citations, you can just move the slider over to see those, and the data will automatically update.</p>
+
+<p>I have created three of these: <a href="http://jgoodwin.net/mm-network/cites-slider.html">Modernist journals</a>,<a href="http://jgoodwin.net/network/cites-slider.html">Literary Theory</a>, and <a href="http://jgoodwin.net/rhet-network/cites-slider.html">Rhetoric and Composition</a>. I&#8217;m sure there are several ways of going about doing this, and I&#8217;m equally as sure that mine is far from the most efficient or practical.</p>
+
+<p>I initially thought that creating one json file with the lowest threshold desirable with the script and then modifying the javascript file that creates the force-directed graph would be the easiest way. My lack of familiarity with both javascript and the internal data structures of D3.js soon led me to abandon this approach, however. I decided that it would be easier to generate separate json files for each citation threshold.</p>
+
+<p>To do this requires modfiying Caren&#8217;s script. Add the following lines to the beginning:</p>
+
+<figure class='code'><figcaption><span>Additions  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="n">threshold</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'><span class="n">name</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then find these lines in Caren&#8217;s script</p>
+
+<figure class='code'><figcaption><span>Line to Change  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">article_list</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&#39;topfourcites.txt&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">edge_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">cite_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">&gt;=</span><span class="mi">8</span> <span class="ow">and</span> <span class="n">cite_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">&gt;=</span><span class="mi">8</span> <span class="p">:</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And change them to:</p>
+
+<figure class='code'><figcaption><span>Change  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">article_list</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">edge_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">3</span> <span class="ow">and</span> <span class="n">cite_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">&gt;=</span> <span class="n">threshold</span> <span class="ow">and</span> <span class="n">cite_dict</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">&gt;=</span> <span class="n">threshold</span> <span class="p">:</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This allows you to send arguments to the script to change the filename and also the allowable citation threshold. The next step is to use a simple script to iterate over the range of desired thresholds:</p>
+
+<figure class='code'><figcaption><span>Perl Shell Script  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="nv">$name</span><span class="o">=</span><span class="nv">$ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'><span class="k">for</span> <span class="nv">$i</span> <span class="p">(</span><span class="mi">3</span><span class="o">..</span><span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="sb">`python try.py $i $name`</span><span class="p">;</span>
+</span><span class='line'>  <span class="sb">`mv netweb/cites.json netweb/cites-$i.json`</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The arguments are set to 3 and 20 here, but these can be easily adjusted (or easily modified to be able be called from the script itself). You also call the script with the name of the data file downloaded from Web of Science. This script will then generate a series of json files labeled cites-3.json, cites-4.json, etc.</p>
+
+<p>The trick now is changes the cites.js code to enable the updates. You have to wrap the entire code that generates the force-directed layout in a function. I call this updateData():</p>
+
+<figure class='code'><figcaption><span>Cites.js Changes  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">updateData</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="nx">first</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'><span class="nx">first</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">&quot;#old&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Feel free to laugh at the first check; I really didn&#8217;t know the syntax for first page loads in javascript, as risible as it sounds. The d3.select command clears the old network graph before the new one is rendered. You have to add a .attr(&#8220;id&#8221;,&#8221;old&#8221;) to the d3.select(&#8220;#chart&#8221;) definition for this to work.</p>
+
+<p>You then need to add this line before the d3.json definition:</p>
+
+<figure class='code'><figcaption><span>Load File Name  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">file</span><span class="o">=</span><span class="s2">&quot;cites-&quot;</span><span class="o">+</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;id1&#39;</span><span class="p">).</span><span class="nx">value</span><span class="o">+</span><span class="s2">&quot;.json&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then at the end of the file, add this:</p>
+
+<figure class='code'><figcaption><span>Final Additions  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="err">\</span><span class="p">}</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">first</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="nx">updateData</span><span class="p">();</span>
+</span><span class='line'><span class="nx">d3</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;change&quot;</span><span class="p">,</span> <span class="nx">change</span><span class="p">);</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">change</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Change&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">updateData</span><span class="p">();</span>
+</span><span class='line'><span class="err">\</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first ending bracket is for the updateData function at the beginning. You can also leave out the console logs if you choose. The final step is to add the slider code to the cites.html file:</p>
+
+<figure class='code'><figcaption><span>Slider Code  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;form</span> <span class="na">onsubmit=</span><span class="s">&quot;return false&quot;</span> <span class="na">oninput=</span><span class="s">&quot;level.value = id1.valueAsNumber&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;label</span> <span class="na">for</span> <span class="err">&quot;</span><span class="na">id1</span><span class="err">&quot;</span><span class="nt">&gt;</span>Citation Threshold<span class="nt">&lt;/label&gt;</span>  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;range&quot;</span> <span class="na">min=</span><span class="s">&quot;3&quot;</span> <span class="na">max=</span><span class="s">&quot;20&quot;</span> <span class="na">value=</span><span class="s">&quot;12&quot;</span> <span class="na">step=</span><span class="s">&quot;1&quot;</span> <span class="na">id=</span><span class="s">&quot;id1&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="nt">&lt;output</span> <span class="na">for=</span><span class="s">&quot;id1&quot;</span> <span class="na">name=</span><span class="s">&quot;level&quot;</span><span class="nt">&gt;</span>12<span class="nt">&lt;/output&gt;</span>/20
+</span><span class='line'>  <span class="nt">&lt;/form&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The min and max should be adjusted to match your own thresholds, and the starting value should also be altered for your desired starting point.</p>
+
+<p>I&#8217;m @joncgoodwin on twitter and gmail if you have any questions or suggestions.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -206,6 +380,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/23/creating-a-threshold-slider/">Creating a Threshold Slider</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/06/17/dying-rabbits/">Dying Rabbits</a>

@@ -1,24 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Asides]]></title>
-  <link href="http://joncgoodwin.github.com/atom.xml" rel="self"/>
-  <link href="http://joncgoodwin.github.com/"/>
-  <updated>2013-06-23T13:33:45-05:00</updated>
-  <id>http://joncgoodwin.github.com/</id>
-  <author>
-    <name><![CDATA[Jonathan Goodwin]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Creating a Threshold Slider - Asides</title>
+  <meta name="author" content="Jonathan Goodwin">
 
   
-  <entry>
-    <title type="html"><![CDATA[Creating a Threshold Slider]]></title>
-    <link href="http://joncgoodwin.github.com/blog/2013/06/23/creating-a-threshold-slider/"/>
-    <updated>2013-06-23T12:58:00-05:00</updated>
-    <id>http://joncgoodwin.github.com/blog/2013/06/23/creating-a-threshold-slider</id>
-    <content type="html"><![CDATA[<p>I wanted to modify this <a href="http://www.unc.edu/~ncaren/cite_network/citenet.py">script</a> by Neal Caren to create an adjustable graph that allows you to control the threshold of citations for nodes that will appear on the graph. If for example, you wanted to see only those nodes with twenty or more citations, you can just move the slider over to see those, and the data will automatically update.</p>
+  <meta name="description" content="I wanted to modify this script by Neal Caren to create an adjustable graph that allows you to control the threshold of citations for nodes that will &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://joncgoodwin.github.com/blog/2013/06/23/creating-a-threshold-slider/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Asides" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Asides</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:joncgoodwin.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Creating a Threshold Slider</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-23T12:58:00-05:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I wanted to modify this <a href="http://www.unc.edu/~ncaren/cite_network/citenet.py">script</a> by Neal Caren to create an adjustable graph that allows you to control the threshold of citations for nodes that will appear on the graph. If for example, you wanted to see only those nodes with twenty or more citations, you can just move the slider over to see those, and the data will automatically update.</p>
 
 <p>I have created three of these: <a href="http://jgoodwin.net/mm-network/cites-slider.html">Modernist journals</a>,<a href="http://jgoodwin.net/network/cites-slider.html">Literary Theory</a>, and <a href="http://jgoodwin.net/rhet-network/cites-slider.html">Rhetoric and Composition</a>. I&#8217;m sure there are several ways of going about doing this, and I&#8217;m equally as sure that mine is far from the most efficient or practical.</p>
 
@@ -157,84 +228,147 @@
 <p>The min and max should be adjusted to match your own thresholds, and the starting value should also be altered for your desired starting point.</p>
 
 <p>I&#8217;m @joncgoodwin on twitter and gmail if you have any questions or suggestions.</p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Dying Rabbits]]></title>
-    <link href="http://joncgoodwin.github.com/blog/2013/06/17/dying-rabbits/"/>
-    <updated>2013-06-17T13:32:00-05:00</updated>
-    <id>http://joncgoodwin.github.com/blog/2013/06/17/dying-rabbits</id>
-    <content type="html"><![CDATA[<p>I checked back in to <a href="http://rosalind.info">Project Rosalind</a> a few days ago, and I noticed that they had added several new problems. One was the familiar Fibonacci sequence, beloved of introdutory computer science instruction everywhere. There was also a modified version of the Fibonacci problem, however, which requires you to compute the sequence with <a href="http://rosalind.info/problems/fibd/">mortal rabbits</a>. (The normal Fibonacci sequence is often introduced as an unrealistic problem in modeling the population growth of immortal rabbits.)</p>
 
-<p>I wanted to find a solution to this that didn&#8217;t involve manually keeping track of how many rabbits were breeding and dying, and it turned out to be more complicated than I originally thought. Brother U. Alfred tackled it in an early issue of <em>The Fibonacci Quarterly</em> <a href="http://www.fq.math.ca/Scanned/1-4/alfred2.pdf">&#8220;Dying Rabbit Problem Revived&#8221;</a>, only to be rebuked somewhat harshly by <a href="http://www.fq.math.ca/Scanned/2-2/cohn1.pdf">John H. E. Cohn</a> in a subsequent issue. V. E. Hoggatt, Jr. and D. A. Lind devised a simple-seeming <a href="http://www.fq.math.ca/Scanned/7-5/hoggatt.pdf">solution</a> a few years later that I found quite difficult to compute. Luckily enough, <a href="http://arxiv.org/pdf/0710.2216.pdf">this paper</a> by Antonio M. Oller included some Maple code that I was able to translate into perl:</p>
+<span class="byline author vcard">Posted by <span class="fn">Jonathan Goodwin</span></span>
 
-<figure class='code'><figcaption><span>Maple Translation  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='perl'><span class='line'><span class="nv">$h</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="nv">$n</span><span class="o">=</span><span class="mi">193</span><span class="p">;</span> <span class="c1">#(Subtract one from offered values, indexing)</span>
-</span><span class='line'><span class="nv">$k</span><span class="o">=</span><span class="mi">17</span><span class="p">;</span> <span class="c1"># As above</span>
-</span><span class='line'><span class="k">use</span> <span class="n">bignum</span><span class="p">;</span>
-</span><span class='line'><span class="k">for</span> <span class="nv">$i</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="nv">$h</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nv">$c</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="nv">$i</span> <span class="p">(</span><span class="nv">$h</span><span class="o">..</span><span class="p">(</span><span class="nv">$k</span><span class="o">+</span><span class="nv">$h</span><span class="o">+</span><span class="mi">2</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nv">$c</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="o">=</span><span class="nv">$c</span><span class="p">[</span><span class="nv">$i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="nv">$c</span><span class="p">[</span><span class="nv">$i</span><span class="o">-</span><span class="nv">$h</span><span class="p">];</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">for</span> <span class="nv">$i</span> <span class="p">(((</span><span class="nv">$k</span><span class="o">+</span><span class="nv">$h</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="nv">$n</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="nv">$counter</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">for</span> <span class="nv">$j</span> <span class="p">((</span><span class="nv">$i</span><span class="o">-</span><span class="nv">$k</span><span class="o">-</span><span class="nv">$h</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">..</span><span class="p">(</span><span class="nv">$i</span><span class="o">-</span><span class="nv">$h</span><span class="p">))</span> <span class="p">{</span>
-</span><span class='line'>    <span class="nv">$counter</span><span class="o">=</span><span class="nv">$counter</span><span class="o">+</span><span class="nv">$c</span><span class="p">[</span><span class="nv">$j</span><span class="p">];</span>
-</span><span class='line'>  <span class="p">}</span>
-</span><span class='line'>  <span class="nv">$c</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="o">=</span><span class="nv">$counter</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">print</span> <span class="nv">$c</span><span class="p">[</span><span class="nv">$n</span><span class="p">];</span>
-</span></code></pre></td></tr></table></div></figure>
+      
 
 
-<p>There is a very short python solution and Common Lisp solution posted on the solutions page (which you can only see after you have solved the problem) that I don&#8217;t understand at all, so there are clearly many other ways.</p>
-]]></content>
-  </entry>
+
+
+
+
+
+
   
-  <entry>
-    <title type="html"><![CDATA[First Octopress]]></title>
-    <link href="http://joncgoodwin.github.com/blog/2013/01/11/first-octopress/"/>
-    <updated>2013-01-11T14:55:00-06:00</updated>
-    <id>http://joncgoodwin.github.com/blog/2013/01/11/first-octopress</id>
-    <content type="html"><![CDATA[<p>Some various points of interest:</p>
-
-<figure class='code'><figcaption><span>Snippet - snippet </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>m &lt;- ggplot(my.topic, aes(x=year, y=prop))</span></code></pre></td></tr></table></div></figure>
 
 
+<time datetime="2013-06-23T12:58:00-05:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2013</time>
+      
 
-]]></content>
-  </entry>
+
+    </p>
+    
+      <div class="sharing">
   
-</feed>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://joncgoodwin.github.com/blog/2013/06/23/creating-a-threshold-slider/" data-via="joncgoodwin" data-counturl="http://joncgoodwin.github.com/blog/2013/06/23/creating-a-threshold-slider/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/06/17/dying-rabbits/" title="Previous Post: Dying Rabbits">&laquo; Dying Rabbits</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/23/creating-a-threshold-slider/">Creating a Threshold Slider</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/17/dying-rabbits/">Dying Rabbits</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/11/first-octopress/">First Octopress</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("joncgoodwin", 10, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/joncgoodwin" class="twitter-follow-button" data-show-count="false">Follow @joncgoodwin</a>
+  
+</section>
+
+
+<section>
+  <h1>My Pinboard</h1>
+  <ul id="pinboard_linkroll">Fetching linkroll...</ul>
+  <p><a href="http://pinboard.in/u:joncgoodwin">My Pinboard Bookmarks &raquo;</a></p>
+</section>
+<script type="text/javascript">
+  var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+  var pinboard_user = "joncgoodwin"; //id target for pinboard list
+  var pinboard_count = 3; //id target for pinboard list
+  (function(){
+    var pinboardInit = document.createElement('script');
+    pinboardInit.type = 'text/javascript';
+    pinboardInit.async = true;
+    pinboardInit.src = '/javascripts/pinboard.js';
+    document.getElementsByTagName('head')[0].appendChild(pinboardInit);
+  })();
+</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jonathan Goodwin -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
